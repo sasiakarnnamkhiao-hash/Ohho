@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ta Ray - Official Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Kanit', 'sans-serif'] },
+                    colors: {
+                        taray: {
+                            bg: '#020617',
+                            primary: '#3B82F6',
+                            primaryDark: '#1E3A8A',
+                            accent: '#111827',
+                            textDark: '#E5E7EB',
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'scroll-left': 'scrollLeft 20s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: { '0%, 100%': { filter: 'drop-shadow(0 0 10px rgba(59,130,246,0.6))' }, '50%': { filter: 'drop-shadow(0 0 20px rgba(59,130,246,1))' } },
+                        scrollLeft: { '0%': { transform: 'translateX(100%)' }, '100%': { transform: 'translateX(-100%)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020617; overflow-x: hidden; }
+        
+        /* Starry Background & Meteor Effect */
+        .night-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute; background: white; border-radius: 50%; opacity: 0.5;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        /* Meteor Animation */
+        .meteor {
+            position: absolute; width: 2px; height: 100px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+            opacity: 0; animation: meteorAnim 4s linear infinite;
+        }
+        @keyframes meteorAnim {
+            0% { transform: translateY(-100px) translateX(100px) rotate(-45deg); opacity: 1; }
+            30% { transform: translateY(500px) translateX(-500px) rotate(-45deg); opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .glass-cyber {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 35px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        }
+        .inner-dash { border: 1.5px dashed rgba(59, 130, 246, 0.4); border-radius: 25px; }
+        .price-card { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); transition: all 0.3s; }
+        .price-card:hover { transform: scale(1.05); background: rgba(59, 130, 246, 0.25); border-color: #3B82F6; }
+        ::-webkit-scrollbar { width: 0px; }
+    </style>
+</head>
+<body class="antialiased font-sans flex justify-center text-gray-200">
+
+    <div class="night-bg" id="star-container">
+        </div>
+
+    <main class="w-full max-w-[480px] min-h-screen relative z-10 bg-black/30 shadow-2xl sm:my-8 sm:rounded-[50px] overflow-hidden border border-white/10 pb-20">
+        
+        <header class="pt-20 pb-12 px-6 text-center">
+            <h1 class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-blue-300 to-blue-700 mb-4 tracking-tighter animate-pulse-glow">Ta Ray</h1>
+            <p class="text-[14px] text-blue-200 leading-relaxed px-4 font-medium italic">
+                รับฝากขาย รับทำป้ายเรท ป้ายคิวอาร์ ปกเครดิต <br>
+                <span class="text-white bg-blue-600/50 px-2 rounded-lg">● รับหาไอดี (ยังไม่รับทำป้ายไอดี) ●</span>
+            </p>
+        </header>
+
+        <div class="px-6 mb-12">
+            <a href="https://docs.google.com/spreadsheets/d/1-kKlNjdrTLPbQ0ogYQt7Fb-QtCoLyMmX0H57NfEOMwA/edit?usp=drivesdk" 
+               target="_blank" 
+               class="flex items-center justify-between bg-gradient-to-r from-blue-600 to-blue-800 text-white p-5 rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:shadow-blue-500/60 transition-all active:scale-95 border border-blue-400/50">
+                <span class="font-bold flex items-center gap-3"><i class="fa-solid fa-list-check animate-bounce"></i> คลิกตรวจสอบคิวสถานะร้าน</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <div class="px-5 mb-10">
+            <div class="glass-cyber p-2 mb-4">
+                <img src="att.qinRJRdZk5uRPfzTV5LLWtC3_BvNc47dYtI2am68Mtc.jpeg" alt="เรทดันไอดี" class="w-full rounded-[30px]">
+            </div>
+            <div class="inner-dash p-6 bg-blue-950/30">
+                <h3 class="text-blue-300 font-bold mb-4 text-center text-lg">📊 สรุปเรทราคาดันไอดี</h3>
+                <div class="grid grid-cols-2 gap-2 text-[12px]">
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>500-900</span> <span class="font-bold">15฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>1000-1499</span> <span class="font-bold">25฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>1500-1999</span> <span class="font-bold">30฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>2000-2499</span> <span class="font-bold">45฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>2500-4499</span> <span class="font-bold">57฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>4500-5999</span> <span class="font-bold">65฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>6000-7500</span> <span class="font-bold">80฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>7501-8500</span> <span class="font-bold">95฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>8501-9999</span> <span class="font-bold">145฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between col-span-2 text-yellow-400 border-yellow-500/50"><span>10,000+ ขึ้นไป</span> <span class="font-bold">1.9% - 5.5%</span></div>
+                </div>
+                <p class="text-[11px] text-red-400 font-bold mt-5 text-center p-2 bg-red-900/20 rounded-lg border border-red-800/30">
+                    ❌ คนที่พึ่งใช้บริการจ่ายก่อนทุกกรณี ❌
+                </p>
+            </div>
+        </div>
+
+        <div class="px-5 mb-10">
+            <div class="glass-cyber p-2 mb-4">
+                <img src="IMG_0154.jpeg" alt="เรทหาไอดี" class="w-full rounded-[30px]">
+            </div>
+            <div class="inner-dash p-6 bg-blue-950/30">
+                <h3 class="text-blue-300 font-bold mb-4 text-center text-lg">🔍 สรุปเรทราคาหาไอดี</h3>
+                <div class="grid grid-cols-2 gap-2 text-[12px]">
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>1-900</span> <span class="font-bold">40฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>901-1900</span> <span class="font-bold">57฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>1901-3500</span> <span class="font-bold">75฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>3501-6000</span> <span class="font-bold">90฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>6001-9000</span> <span class="font-bold">120฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>9001-9,999</span> <span class="font-bold">145฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>10,000+++</span> <span class="font-bold">170฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between"><span>30,000+++</span> <span class="font-bold">250฿</span></div>
+                    <div class="price-card p-3 rounded-xl flex justify-between col-span-2"><span>100,000+++</span> <span class="font-bold">300฿</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-5 space-y-8">
+            <div class="glass-cyber p-2">
+                <div class="inner-dash p-6">
+                    <h3 class="font-bold text-blue-400 mb-6 flex items-center gap-3 text-xl">
+                        <i class="fa-solid fa-basket-shopping bg-blue-600 p-2 rounded-xl text-white"></i> วิธีสั่งซื้อ
+                    </h3>
+                    <div class="text-[14px] space-y-5 text-gray-300">
+                        <div class="flex gap-4 items-center"><span class="bg-blue-600 text-white w-7 h-7 rounded-full flex items-center justify-center shrink-0 font-bold">1</span> <p>ทักแชทแจ้งความต้องการ (หาไอดี/ทำป้าย)</p></div>
+                        <div class="flex gap-4 items-center"><span class="bg-blue-600 text-white w-7 h-7 rounded-full flex items-center justify-center shrink-0 font-bold">2</span> <p>ส่งข้อมูล/รูปภาพตามแบบฟอร์ม</p></div>
+                        <div class="flex gap-4 items-center"><span class="bg-yellow-600 text-white w-7 h-7 rounded-full flex items-center justify-center shrink-0 font-bold">3</span> <p class="text-white font-bold">โอนเงินเต็มจำนวน (จ่ายก่อนเริ่มงาน)</p></div>
+                        <div class="flex gap-4 items-center"><span class="bg-blue-600 text-white w-7 h-7 rounded-full flex items-center justify-center shrink-0 font-bold">4</span> <p>รอรับงานภายใน 1-3 วัน</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-cyber p-2">
+                <div class="inner-dash p-6">
+                    <h3 class="font-bold text-blue-400 mb-6 flex items-center gap-3 text-xl">
+                        <i class="fa-solid fa-question-circle bg-blue-600 p-2 rounded-xl text-white"></i> คำถามที่พบบ่อย
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-900/20 p-4 rounded-2xl border border-blue-800/30">
+                            <p class="text-white font-bold mb-1">● งานด่วนทำได้ไหม?</p>
+                            <p class="text-gray-400 text-sm">ทักมาคุยคิวก่อนได้ครับ ถ้าว่างยินดีทำให้เลยฟรี!</p>
+                        </div>
+                        <div class="bg-red-900/10 p-4 rounded-2xl border border-red-800/20">
+                            <p class="text-red-400 font-bold mb-1">● ยกเลิกงานคืนเงินไหม?</p>
+                            <p class="text-gray-400 text-sm">หากเริ่มงานไปแล้ว ไม่สามารถคืนเงินได้ทุกกรณีครับ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://www.facebook.com/share/1HXq3wncat/?mibextid=wwXIfr" target="_blank" 
+               class="glass-cyber p-6 flex items-center gap-5 hover:bg-blue-900/20 transition-all border-l-8 border-blue-600 group">
+                <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-4xl shadow-lg group-hover:scale-110 transition-transform">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div>
+                    <p class="font-bold text-white text-lg">Ta Ray Facebook</p>
+                    <p class="text-sm text-gray-400 font-medium">คลิกเพื่อทักแชทสอบถาม</p>
+                </div>
+            </a>
+        </div>
+
+        <footer class="mt-20">
+            <div class="bg-blue-950/60 py-3 border-y border-blue-800/50 marquee-wrapper">
+                <div class="animate-scroll-left text-blue-400 text-[12px] font-bold">
+                    TA RAY SHOP ● รับหาไอดี ● รับฝากขาย ● ป้ายเรทราคา ● ป้ายคิวอาร์ ● คุณภาพดี รวดเร็ว มั่นใจได้ 100% ●
+                </div>
+            </div>
+            <p class="text-center text-gray-600 text-[11px] mt-6 px-10 pb-10">ขอบคุณที่ไว้วางใจใช้บริการร้าน Ta Ray นะครับ 💙</p>
+        </footer>
+
+    </main>
+
+    <script>
+        const container = document.getElementById('star-container');
+        // Create Static Stars
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            container.appendChild(star);
+        }
+        // Create Meteors
+        setInterval(() => {
+            const meteor = document.createElement('div');
+            meteor.className = 'meteor';
+            meteor.style.left = Math.random() * 100 + '%';
+            meteor.style.top = Math.random() * 50 + '%';
+            meteor.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            container.appendChild(meteor);
+            setTimeout(() => meteor.remove(), 4000);
+        }, 2000);
+    </script>
+</body>
+</html>
